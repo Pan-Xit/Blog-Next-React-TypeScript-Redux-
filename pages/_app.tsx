@@ -1,10 +1,13 @@
 import React from 'react';
-import { Normalize } from 'styled-normalize';
+import { Provider } from 'react-redux';
+// Styles
 import styled from 'styled-components';
-
+import { Normalize } from 'styled-normalize';
 // Components
 import Header from '../containers/Header/Header';
 import Footer from '../containers/Footer/Footer';
+// Store
+import store from '../store';
 
 const Layout = styled.div`
   display: flex;
@@ -16,9 +19,11 @@ export default function App({ Component, pageProps }) {
   return (
     <Layout>
       <Normalize />
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <Provider store={store}>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </Provider>
     </Layout>
   )
 }

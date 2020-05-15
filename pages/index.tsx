@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import Head from 'next/head';
 // Styles
 import styled from 'styled-components';
@@ -7,23 +9,32 @@ import Posts from '../containers/Posts/Posts';
 import fetchPosts from '../gateway/fetchPosts';
 // Types
 import { PostListType } from '../types/posts';
+// Store Actions
+import { setPostList } from '../store/actions';
 
 interface Props {
   posts: PostListType;
+  onSetPostList(posts: PostListType): void;
 }
 
-export default function Home({ posts }) {
+function Home(props) {
+
+  useEffect(
+    () => {
+      props.onSetPostList(props.posts)
+    }, []
+  )
 
   return (
     <>
-      <Posts posts={posts} />
+      <Posts />
     </>
   )
 }
 
 
 export async function getServerSideProps(context) {
-  const posts = await fetchPosts()
+  const posts: PostListType = await fetchPosts();
 
   return {
     props: {
@@ -31,3 +42,9 @@ export async function getServerSideProps(context) {
     },
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  onSetPostList: (posts) => dispatch(setPostList(posts))
+})
+
+export default connect(null, mapDispatchToProps)(Home);

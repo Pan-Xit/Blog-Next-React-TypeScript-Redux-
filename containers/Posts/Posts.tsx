@@ -1,11 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 // Components
 import Wrapper from '../Wrapper/Wrapper';
 import Post from '../../components/Post/Post';
 // Styles
 import styled from 'styled-components';
 // Types
-import { PostListType } from '../../types/posts';
+import { PostListType, PostType } from '../../types/posts';
 
 interface Props {
   posts: PostListType;
@@ -20,11 +21,13 @@ const StyledList = styled.ul`
 `
 
 const Posts: React.FC<Props> = ({ posts }) => {
+  console.log(posts)
+
   let content: JSX.Element;
-  if (posts) {
+  if (posts.length > 0) {
     content = (
       <StyledList>
-        {posts.map(post => <Post key={post.id} post={post} />)}
+        {(posts as PostType[]).map(post => <Post key={post.id} post={post} />)}
       </StyledList>
     )
   } else {
@@ -38,4 +41,8 @@ const Posts: React.FC<Props> = ({ posts }) => {
   )
 }
 
-export default Posts;
+const mapStateToProps = (state) => ({
+  posts: state
+})
+
+export default connect(mapStateToProps)(Posts);

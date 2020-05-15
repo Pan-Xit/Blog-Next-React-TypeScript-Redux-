@@ -5,4 +5,4 @@ export interface PostType {
   imgUrl?: string 
 }
 
-export type PostListType = PostType[] | null
+export type PostListType = PostType[] | []
