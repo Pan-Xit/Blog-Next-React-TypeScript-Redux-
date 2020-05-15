@@ -30,6 +30,10 @@ const StyledForm = styled.form`
     text-align: center;
   }
 
+  input {
+    text-align: center;
+  }
+
   textarea {
     min-height: 100px;
   }

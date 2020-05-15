@@ -9,13 +9,14 @@ import Footer from '../containers/Footer/Footer';
 // Store
 import store from '../store';
 
+
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 `
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   console.log('App rendered')
   return (
     <Layout>
@@ -28,3 +29,5 @@ export default function App({ Component, pageProps }) {
     </Layout>
   )
 }
+
+export default App;
