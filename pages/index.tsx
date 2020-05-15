@@ -1,15 +1,33 @@
-import Head from 'next/head'
+import Head from 'next/head';
+// Styles
 import styled from 'styled-components';
 // Components
-import Header from '../containers/Header/Header';
+import Posts from '../containers/Posts/Posts';
+// Gateway
+import fetchPosts from '../gateway/fetchPosts';
+// Types
+import { PostListType } from '../types/posts';
 
-export default function Home() {
+interface Props {
+  posts: PostListType;
+}
+
+export default function Home({ posts }) {
 
   return (
     <>
-      <div>
-        Hello New Simple Blog
-      </div>
+      <Posts posts={posts} />
     </>
   )
+}
+
+
+export async function getServerSideProps(context) {
+  const posts = await fetchPosts()
+
+  return {
+    props: {
+      posts,
+    },
+  }
 }
