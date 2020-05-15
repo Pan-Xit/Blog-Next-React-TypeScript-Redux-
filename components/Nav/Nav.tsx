@@ -23,7 +23,7 @@ const Nav: React.FC = () => {
   return (
     <StyledNav>
       <Link href="/"><a>Home</a></Link>
-      <Link href="#"><a>Create Post</a></Link>
+      <Link href="/new-post"><a>Create Post</a></Link>
     </StyledNav>
   )
 }

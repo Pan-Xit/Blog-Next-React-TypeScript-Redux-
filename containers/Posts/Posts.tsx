@@ -21,13 +21,15 @@ const StyledList = styled.ul`
 `
 
 const Posts: React.FC<Props> = ({ posts }) => {
-  console.log(posts)
+  const sortedPosts = posts.slice()
 
   let content: JSX.Element;
-  if (posts.length > 0) {
+  if (sortedPosts.length > 0) {
     content = (
       <StyledList>
-        {(posts as PostType[]).map(post => <Post key={post.id} post={post} />)}
+        {(sortedPosts as PostType[])
+          .sort((a, b) => b.id - a.id) // We don`t have a Date in our objects so just sort them by id (since id is an increment the latest posts have bigger id)
+          .map(post => <Post key={post.id} post={post} />)}
       </StyledList>
     )
   } else {

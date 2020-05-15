@@ -8,7 +8,6 @@ const initialState: PostListType = [];
 const reducer = (state: PostListType = initialState, action: Action): PostListType => {
   switch (action.type) {
     case (SET_POST_LIST):
-      debugger
       return action.postList;
     default:
       return state;

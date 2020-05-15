@@ -6,7 +6,7 @@ import styled from 'styled-components';
 // Components
 import Posts from '../containers/Posts/Posts';
 // Gateway
-import fetchPosts from '../gateway/fetchPosts';
+import { fetchPosts } from '../gateway/gateway';
 // Types
 import { PostListType } from '../types/posts';
 // Store Actions
@@ -21,10 +21,10 @@ function Home(props) {
 
   useEffect(
     () => {
-      props.onSetPostList(props.posts)
+      props.onSetPostList(props.initialPosts)
     }, []
   )
-
+  console.log('Home rendered')
   return (
     <>
       <Posts />
@@ -38,13 +38,17 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      posts,
+      initialPosts: posts,
     },
   }
 }
+
+const mapStateToProps = (state) => ({
+  postList: state
+})
 
 const mapDispatchToProps = (dispatch) => ({
   onSetPostList: (posts) => dispatch(setPostList(posts))
 })
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

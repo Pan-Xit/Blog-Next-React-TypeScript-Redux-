@@ -11,7 +11,7 @@ const StyledWrapper = styled.div`
   flex-direction: ${ (props) => props.row ? "row" : "column" };
   max-width: 1140px;
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
 `
 
 const Wrapper: React.FC<Props> = (props) => {
