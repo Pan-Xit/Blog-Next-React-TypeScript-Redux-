@@ -4,6 +4,7 @@ import styled from 'styled-components';
 // Types
 import { CommentType } from '../../types/comments';
 
+
 interface Props {
   comment: CommentType;
 }

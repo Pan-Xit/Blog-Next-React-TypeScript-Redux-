@@ -1,12 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 // Components
-import Wrapper from '../Wrapper/Wrapper';
 import Post from '../../components/Post/Post';
 // Styles
 import styled from 'styled-components';
 // Types
 import { PostType } from '../../types/posts';
+
 
 interface Props {
   posts: PostType[];

@@ -2,6 +2,7 @@ import axios from './axios';
 // Types
 import { PostType, PostListType } from '../types/posts';
 
+
 interface FetchPosts {
   data: PostListType
 }

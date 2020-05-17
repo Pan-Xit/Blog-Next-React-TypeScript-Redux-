@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link'
 import styled from 'styled-components';
 
+
 const StyledNav = styled.nav`
   margin: 30px 0 0 auto;
   display: flex;

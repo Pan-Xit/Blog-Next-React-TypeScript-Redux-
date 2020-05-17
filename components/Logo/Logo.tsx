@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const StyledLogo = styled.div`
   width: 100px;
 `

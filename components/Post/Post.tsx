@@ -1,11 +1,10 @@
-// Implement pagination (max posts on page == 10)
-
 import React from 'react';
 import Link from 'next/link';
 // Styles
 import styled from 'styled-components';
 // Types
 import { PostType } from '../../types/posts';
+
 
 interface Props {
   post: PostType

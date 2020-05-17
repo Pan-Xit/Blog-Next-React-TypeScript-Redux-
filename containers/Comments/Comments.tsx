@@ -7,6 +7,7 @@ import CommentForm from '../../components/Comment/CommentForm';
 // Types
 import { CommentsListType, CommentType } from '../../types/comments';
 
+
 interface Props {
   comments: CommentsListType;
   postId: number;

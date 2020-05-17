@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // Component
 import Wrapper from '../Wrapper/Wrapper';
 
+
 const StyledFooter = styled.footer`
   margin-top: auto;
   display: flex;

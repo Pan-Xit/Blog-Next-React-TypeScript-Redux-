@@ -6,9 +6,6 @@ import Logo from '../../components/Logo/Logo';
 import Title from '../../components/Title/Title';
 import Nav from '../../components/Nav/Nav';
 
-// Logo === Link to /
-// Title
-// Buttons (create new?)
 
 const StyledHeader = styled.header`
   background: linear-gradient(90deg, #fff, #ccc 80%);
