@@ -17,7 +17,6 @@ const Layout = styled.div`
 `
 
 function App({ Component, pageProps }) {
-  console.log('App rendered')
   return (
     <Layout>
       <Normalize />

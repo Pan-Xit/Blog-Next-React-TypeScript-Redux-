@@ -12,20 +12,42 @@ interface Props {
 
 const StyledLi = styled.li`
   margin: 8px;
-  width: 40%;
   flex-grow: 1;
+
+  @media screen and (min-width: 700px) {
+    width: 40%;
+  }
 `
 
 const PostImg = styled.figure`
-  width: 100px;
+  width: 30%;
+  max-width: 100px;
 
   img {
     max-width: 100%;
   }
 `
 
+const PostContent = styled.div`
+  width: 70%;
+
+  h3 {
+    height: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    margin: 0;
+    height: 35%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+`
+
 const StyledA = styled.a`
   display: flex;
+  height: 150px;
   padding: 8px;
   border: 1px solid #eee;
   box-shadow: 1px 1px 1px #ccc;
@@ -49,10 +71,10 @@ const Post:React.FC<Props> = ({ post }) => {
           <PostImg>
             <img src={postImgSrc} alt={`Preview for post ${post.id}`} />
           </PostImg>
-          <div>
+          <PostContent>
             <h3>{post.title}</h3>
             <p>{post.body}</p>
-          </div>
+          </PostContent>
         </StyledA>
       </Link>
     </StyledLi>

@@ -8,9 +8,10 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: space-evenly;
   align-items: start;
-  width: 20%;
+  width: 150px;
 
   a {
+    margin-left: 15px;
     color: #000;
     text-decoration: none;
   }

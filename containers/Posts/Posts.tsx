@@ -13,10 +13,15 @@ interface Props {
 
 const StyledList = styled.ul`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-around;
   list-style-type: none;
   padding: 0;
+
+  @media screen and (min-width: 700px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `
 
 const Posts: React.FC<Props> = ({ posts }) => (

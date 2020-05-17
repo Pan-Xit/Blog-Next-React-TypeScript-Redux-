@@ -16,19 +16,33 @@ interface Props {
 }
 
 const StyledForm = styled.form`
-  margin-top: 50px;
+  margin: 50px 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
 
 
   textarea {
-    width: 80%;
+    width: 100%;
     height: 50px;
   };
 
   button {
-    margin-left: auto;
+    margin-top: 15px;
     padding: 8px;
+  }
+
+  @media screen and (min-width: 700px) {
+    flex-direction: row;
+
+    textarea {
+      width: 80%;
+      margin-right: 15px;
+    };
+  
+    button {
+      margin: 0 0 0 auto;
+    }
   }
 `
 

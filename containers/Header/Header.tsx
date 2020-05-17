@@ -10,6 +10,7 @@ import Nav from '../../components/Nav/Nav';
 const StyledHeader = styled.header`
   background: linear-gradient(90deg, #fff, #ccc 80%);
   height: 250px;
+  padding: 0 8px;
 `
 
 const Header: React.FC = () => {
