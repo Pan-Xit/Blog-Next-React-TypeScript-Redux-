@@ -1,14 +1,21 @@
-import { SET_POST_LIST } from '../actions';
+import { SET_POST, UPDATE_COMMENTS } from '../actions';
 // Types
-import { PostListType } from '../../types/posts';
+import { PostType } from '../../types/posts';
 import { Action } from '../actions';
 
-const initialState: PostListType = [];
+type stateType = PostType | null
 
-const reducer = (state: PostListType = initialState, action: Action): PostListType => {
+const initialState = null;
+
+const reducer = (state: stateType = initialState, action: Action): stateType => {
   switch (action.type) {
-    case (SET_POST_LIST):
-      return action.postList;
+    case SET_POST:
+      return action.post;
+    case UPDATE_COMMENTS:
+      return {
+        ...state,
+        comments: action.comments
+      }
     default:
       return state;
   }

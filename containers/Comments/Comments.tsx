@@ -48,7 +48,7 @@ const Comments: React.FC<Props> = ({ comments, postId }) => {
   return (
     <StyledComments>
       <StyledH3>Comments</StyledH3>
-      {content}
+        {content}
       <CommentForm postId={postId} />
     </StyledComments>
   )

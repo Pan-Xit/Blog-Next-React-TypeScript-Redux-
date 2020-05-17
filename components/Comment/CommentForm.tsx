@@ -1,15 +1,18 @@
 import React, { useRef } from 'react';
-import Router from 'next/router'
+import { connect } from 'react-redux';
 // Styles
 import styled from 'styled-components';
 // Gateway
 import { postComment } from '../../gateway/gateway';
+// Store
+import { updateComments } from '../../store/actions';
 // Types
 import { postedCommentInterface } from '../../gateway/gateway';
 
 
 interface Props {
   postId: number;
+  onUpdateComments(postId: number): void;
 }
 
 const StyledForm = styled.form`
@@ -29,7 +32,7 @@ const StyledForm = styled.form`
   }
 `
 
-const NewComment: React.FC<Props> = ({ postId }) => {
+const NewComment: React.FC<Props> = ({ postId, onUpdateComments }) => {
   const textAreaEl = useRef(null);
 
   const onSubmitHandler = (e: any): void => {
@@ -44,7 +47,10 @@ const NewComment: React.FC<Props> = ({ postId }) => {
     }
 
     postComment(payload)
-      .then(res => { Router.push(`/posts/${postId}`) })
+      .then(res => {
+        textAreaEl.current.value = ''
+        onUpdateComments(postId);
+      })
   }
 
   return (
@@ -55,4 +61,8 @@ const NewComment: React.FC<Props> = ({ postId }) => {
   )
 }
 
-export default NewComment;
+const mapDispatchToProps = (dispatch) => ({
+  onUpdateComments: (postId: number) => dispatch(updateComments(postId))
+})
+
+export default connect(null, mapDispatchToProps)(NewComment);

@@ -1,8 +1,11 @@
+import { CommentsListType } from './comments';
+
 export interface PostType {
-  id: number,
-  title: string,
-  body: string,
-  imgUrl?: string 
+  id: number;
+  title: string;
+  body: string;
+  comments: CommentsListType;
+  imgUrl?: string;
 }
 
-export type PostListType = PostType[] | []
+export type PostListType = PostType[] | [];
