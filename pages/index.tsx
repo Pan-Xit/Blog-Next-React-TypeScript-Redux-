@@ -21,8 +21,7 @@ const StyledDiv = styled.div`
 const Home: React.FC<Props> = ({ posts }) => {
   let content: JSX.Element;
   if (posts.length > 0) {
-    const sortedPosts = posts.slice()
-    content = <Posts posts={sortedPosts} />
+    content = <Posts posts={posts} />
   } else {
     content = <StyledDiv>Ooops it seems this blog is empty :(</StyledDiv>
   }
